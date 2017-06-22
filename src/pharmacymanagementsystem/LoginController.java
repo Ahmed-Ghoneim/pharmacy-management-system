@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -39,7 +40,7 @@ public class LoginController implements Initializable, ControlledScreen {
     private PasswordField password;
 
     @FXML
-    private void login() throws Exception {
+    private void login(ActionEvent event) throws Exception {
         String employeeName = "";
         String user = "";
         String encPass = encryption.encrypt(password.getText());
@@ -90,7 +91,8 @@ public class LoginController implements Initializable, ControlledScreen {
     }
 
     @FXML
-    private void exitProgram() {
+    private void exitProgram(ActionEvent event) {
+        System.out.println("Bye");
         System.exit(0);
     }
 

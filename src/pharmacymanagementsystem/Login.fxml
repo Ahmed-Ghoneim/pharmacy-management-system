@@ -28,7 +28,7 @@
       </HBox>
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-          <Button fx:id="login" alignment="CENTER" mnemonicParsing="false" onAction="#login" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: #290049; -fx-background-radius: 5;" text="Login" textFill="WHITE" />
+          <Button fx:id="login" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#login" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: #290049; -fx-background-radius: 5;" text="Login" textFill="WHITE" />
             <Button fx:id="cancel" mnemonicParsing="false" onAction="#exitProgram" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: #290049; -fx-background-radius: 5;" text="Exit" textFill="WHITE" />
          </children>
       </HBox>
