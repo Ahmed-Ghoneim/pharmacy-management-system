@@ -5,16 +5,20 @@
  */
 package pharmacymanagementsystem;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -44,6 +48,9 @@ public class ManagerController implements Initializable, ControlledScreen {
     private VBox pane;
     
     @FXML
+    private GridPane managerPane;
+    
+    @FXML
     private Label employeeName;
 
     @FXML
@@ -51,6 +58,9 @@ public class ManagerController implements Initializable, ControlledScreen {
     
     @FXML
     private ImageView employeeImage;
+    
+     @FXML
+    private ImageView backward;
     
     
     @FXML
@@ -69,8 +79,10 @@ public class ManagerController implements Initializable, ControlledScreen {
     }
 
     @FXML
-    void goToAddMedicine(ActionEvent event) {
-
+    void goToAddMedicine(ActionEvent event) throws IOException {
+        backward.setVisible(true);
+        pane.getChildren().remove(managerPane);
+        pane.getChildren().add(FXMLLoader.load(getClass().getResource("AddMedicine.fxml")));
     }
 
     @FXML
@@ -141,6 +153,14 @@ public class ManagerController implements Initializable, ControlledScreen {
      @FXML
     void goToShowAllEmployees(ActionEvent event) {
 
+    }
+    
+     @FXML
+    void goToManagerPane(MouseEvent event) {
+        if(backward.isVisible())
+            backward.setVisible(false);
+        pane.getChildren().remove(1);
+        pane.getChildren().add(managerPane);
     }
     
      @FXML

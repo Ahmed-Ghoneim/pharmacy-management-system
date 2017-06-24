@@ -20,15 +20,13 @@ import org.controlsfx.control.textfield.TextFields;
  *
  * @author Ahmed
  */
-public class AddMedicineController implements Initializable, ControlledScreen {
+public class AddMedicineController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
     
-    ScreensController myController;
-    
-     @FXML
+    @FXML
     private VBox addMedicinePane;
     
     @FXML
@@ -61,10 +59,4 @@ public class AddMedicineController implements Initializable, ControlledScreen {
 //            searchBox,
 //            "Hey", "Hello", "Hello World", "Apple", "Cool", "Costa", "Cola", "Coca Cola");
     }    
-
-    @Override
-    public void setScreenParent(ScreensController screenPage) {
-        myController = screenPage;
-    }
-    
 }
