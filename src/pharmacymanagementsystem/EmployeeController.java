@@ -1,16 +1,21 @@
 package pharmacymanagementsystem;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 public class EmployeeController implements Initializable, ControlledScreen {
@@ -24,7 +29,13 @@ public class EmployeeController implements Initializable, ControlledScreen {
     private VBox pane;
 
     @FXML
+    private ImageView backward;
+
+    @FXML
     private TextField searchBox;
+
+    @FXML
+    private TableView<?> searchTable;
 
     @FXML
     private TableColumn<?, ?> medicineName;
@@ -48,7 +59,8 @@ public class EmployeeController implements Initializable, ControlledScreen {
     private Label employeeUsername;
 
     @FXML
-    private Button newInvoice;
+    private GridPane employeePane;
+
 
     @FXML
     void GoToNotExist(ActionEvent event) {
@@ -61,8 +73,10 @@ public class EmployeeController implements Initializable, ControlledScreen {
     }
 
     @FXML
-    void goToAddMedicine(ActionEvent event) {
-
+    void goToAddMedicine(ActionEvent event) throws IOException {
+        backward.setVisible(true);
+        pane.getChildren().remove(employeePane);
+        pane.getChildren().add(FXMLLoader.load(getClass().getResource("AddMedicine.fxml")));
     }
 
     @FXML
@@ -110,6 +124,14 @@ public class EmployeeController implements Initializable, ControlledScreen {
     @FXML
     void goToShowAll(ActionEvent event) {
 
+    }
+    
+    @FXML
+    void goToEmployeePane(MouseEvent event) {
+        if(backward.isVisible())
+            backward.setVisible(false);
+        pane.getChildren().remove(1);
+        pane.getChildren().add(employeePane);
     }
 
     @Override
