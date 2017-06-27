@@ -27,8 +27,6 @@ import tray.notification.TrayNotification;
  */
 public class LoginController implements Initializable, ControlledScreen {
 
-    Connection conn = null;
-    Statement stmt = null;
     TrayNotification notification;
     Encryption encryption;
     ScreensController myController;
@@ -49,8 +47,8 @@ public class LoginController implements Initializable, ControlledScreen {
         try {
             boolean logged = false;
             String pass = "";
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT name, username, email, image, password FROM employees;");
+            PharmacyManagementSystem.stmt = PharmacyManagementSystem.conn.createStatement();
+            ResultSet rs = PharmacyManagementSystem.stmt.executeQuery("SELECT id, name, username, email, image, password FROM employees;");
             
             while (rs.next()) {
                 user = rs.getString("username");
@@ -60,6 +58,7 @@ public class LoginController implements Initializable, ControlledScreen {
                 //Login success
                 if ((username.getText().equals(user) || username.getText().equals(email)) && encPass.equals(pass)) {
                     logged = true;
+                    PharmacyManagementSystem.id = rs.getInt("id");
                     employeeName = rs.getString("name");
                     imageLink = rs.getString("image");
                     System.out.println("link: " + imageLink);
@@ -101,8 +100,8 @@ public class LoginController implements Initializable, ControlledScreen {
         try {
             // TODO
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:db/pharmacy.db");
-            conn.setAutoCommit(false);
+            PharmacyManagementSystem.conn = DriverManager.getConnection("jdbc:sqlite:db/pharmacy.db");
+            PharmacyManagementSystem.conn.setAutoCommit(false);
             
             encryption = new Encryption();
             

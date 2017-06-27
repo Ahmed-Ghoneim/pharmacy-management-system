@@ -5,6 +5,11 @@
  */
 package pharmacymanagementsystem;
 
+import java.sql.Connection;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -20,12 +25,20 @@ import javafx.stage.Stage;
 //background  #5fc5fc
 public class PharmacyManagementSystem extends Application {
     
-    public static String loginID = "login";
-    public static String loginFile = "Login.fxml";
-    public static String managerID = "manager";
-    public static String managerFile = "Manager.fxml";
-    public static String employeeID = "employee";
-    public static String employeeFile = "Employee.fxml";
+    static int id;
+//    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//    Date date = new Date();
+//    String d = dateFormat.format(date);
+    //set Screens IDs and file name
+    static String loginID = "login";
+    static String loginFile = "Login.fxml";
+    static String managerID = "manager";
+    static String managerFile = "Manager.fxml";
+    static String employeeID = "employee";
+    static String employeeFile = "Employee.fxml";
+    //set sqlite objects
+    static Connection conn = null;
+    static Statement stmt = null;
     
     static ScreensController mainContainer;
     
