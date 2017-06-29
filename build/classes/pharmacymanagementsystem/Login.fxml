@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="768.0" prefWidth="1366.0" spacing="25.0" style="-fx-background-color: #9CB5DF;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pharmacymanagementsystem.LoginController">
+   <children>
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/E:/Programming/Java/app/Pharmacy%20Management%20System/photos/pharma%20logo.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" spacing="15.0">
+         <children>
+            <TextField fx:id="username" prefHeight="30.0" prefWidth="350.0" promptText="username or e-mail" style="-fx-background-color: #D3DEF1; -fx-background-radius: 30;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" spacing="20.0">
+         <children>
+            <PasswordField fx:id="password" prefHeight="30.0" prefWidth="350.0" promptText="password" style="-fx-background-color: #D3DEF1; -fx-background-radius: 30;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+          <Button fx:id="login" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#login" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: #290049; -fx-background-radius: 25;" text="Login" textFill="WHITE" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#exitProgram" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: #290049; -fx-background-radius: 25;" text="Exit" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="100.0" left="150.0" right="150.0" top="100.0" />
+   </padding>
+</VBox>
